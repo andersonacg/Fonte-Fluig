@@ -1,0 +1,241 @@
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US-x-Hixie">
+	<head>
+		<link type="text/css" rel="stylesheet" href="http://style.fluig.com/css/fluig-style-guide.min.css">
+		<link rel="stylesheet" type="text/css" href="/portal/resources/style-guide/css/fluig-style-guide.min.css">
+		<script src="/portal/resources/js/jquery/jquery.js"></script>
+		<script src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script src="/portal/resources/style-guide/js/fluig-style-guide.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css">
+		<link rel="stylesheet" type="text/css" href="estilo.css">
+		<link rel="stylesheet" type="text/css" href="css/fluig-style-guide.min.css">
+		<meta charset="UTF-8">
+		
+		<script>
+
+function valDatas(){ 
+
+    var dat1 = document.getElementsByName("dataInicio")[0].value;
+    var dat2 = document.getElementsByName("datafim")[0].value;
+    var data = new Date();
+    data = data.toISOString().substring(0, 10);
+
+
+    if ( dat1 < data) {
+    	messagemErro("Data inicial menor que data atual!");
+    	document.getElementsByName("dataInicio")[0].value = '';
+
+    }
+
+    if (dat2!=''){
+      if ( dat2 < data) {
+    	messagemErro("Data final menor que data atual!");
+    	document.getElementsByName("datafim")[0].value = '';
+
+		} else if ( dat2 < dat1) {
+	    	messagemErro("Data final menor que data inicial!");
+	    	document.getElementsByName("datafim")[0].value = '';
+
+		}
+	}
+}
+
+function messagemErro(msg){
+		    FLUIGC.toast({
+		        title: 'ERRO: ',
+		        message: msg,
+		        type: 'danger'
+
+		    });
+}
+
+</script>
+		
+
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="titulo"><span class="fluigicon fluigicon-home fluigicon-md"></span>&nbsp;&nbsp;Informações Iniciais do Emprestimo</div>
+							<div class="panel-body">	
+								<div class="col-md-4 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Nome do solicitante</label>
+										<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-calendar-verified fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="nomeSolicitante">							
+										</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Data da solicitação</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-time fluigicon-sm"></span></span>
+											<input class="form-control" type="date" name="dataSolicitacao">											
+										</div><br>
+								</div>
+								
+								<div class="col-md-4 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Setor</label>
+										<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-calendar-verified fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="setor">							
+										</div><br>
+								</div>
+
+
+								<div class="col-md-3 col-xs-12" >
+									<label><span style="color: #f00;">*</span>Status</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-search fluigicon-sm"></span></span>
+										<select name="status" class="form-control">
+											<option>-SELECIONE-</option>
+											<option>Aguardando</option>
+											<option>Em atendimento</option>
+											<option>Finalizado</option>
+
+										</select><br>
+									</div>
+								</div>
+								<div class="col-md-2 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Numero da O.S</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-tag fluigicon-sm"></span></span>
+										
+											<input class="form-control" type="number" name="numOS">											
+										</div><br>
+								</div>
+
+								<div class="col-md-4 col-xs-12">	
+										<label id="texto"><span style="color: #f00;">*</span>Nº de Contato</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-mobile-on fluigicon-sm"></span></span>
+												<input type="text" name="numContato" class="form-control">
+												
+											</div><br>
+								</div>
+								
+								
+
+							</div>
+						</div>
+				</div>
+				
+				<!-- **************************************************************************************************************************************************-->
+				
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="titulo"><span class="fluigicon fluigicon-info-sign fluigicon-md"></span>&nbsp;&nbsp;Periodo do Emprestimo</div>
+							<div class="panel-body">	
+								
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto">Periodo Inicial do Emprestimo</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></span>
+											<input type="date" class="form-control" onchange="valDatas()" name="dataInicio">
+											
+										</div><br>
+								</div>
+								
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto">Periodo Final do Emprestimo</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></span>
+											<input type="date" class="form-control" onchange="valDatas()" name="datafim">
+											
+										</div><br>
+								</div>
+								<div class="col-md-12 col-xs-12">	
+									<div class="form-group">
+										<label id="rotulo"><span style="color: #f00;">*</span>Motivo do Emprestimo</label>
+										<textarea class="form-control" name="motivoEmprestimo" rows="3"></textarea>
+									</div>
+								</div>
+
+							</div>
+						</div>
+				</div>
+				
+								
+				<!-- **************************************************************************************************************************************************-->
+				
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="titulo"><span class="fluigicon fluigicon-process-adhoc fluigicon-md"></span>&nbsp;&nbsp;Informações do atendimento</div>
+							<div class="panel-body">
+
+								<div class="col-md-4 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Nome do Analista</label>
+										<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-calendar-verified fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="nomeAnalista">							
+										</div><br>
+								</div>
+
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto">Data do Atendimento</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></span>
+											<input type="date" name="dataAtendimento"  class="form-control">
+											
+										</div><br>
+								</div>	
+
+								<div class="col-md-3 col-xs-12" >
+									<label><span style="color: #f00;">*</span>Aprovar Emprestimo</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-process-automatic-send fluigicon-sm"></span></span>
+										<select name="aprovEmp" class="form-control">
+											<option>-SELECIONE-</option>
+											<option>Aceitar</option>
+											<option>Rejeitar</option>
+										</select><br>
+									</div><br>
+								</div>	
+
+								<div class="col-md-4 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Notebook disponibilizado</label>
+										<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-calendar-verified fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="notebookDisponivel" onclick="zoomGrupo('ds_cadastroNote', this.name);">							
+										</div><br>
+								</div>	
+
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto">Data da Coleta</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></span>
+											<input type="date" name="dataColeta"  class="form-control">
+											
+										</div><br>
+								</div>	
+
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto">Data da Devolução</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></span>
+											<input type="date" name="dataDevolucao"  class="form-control">
+											
+										</div><br>
+								</div>								
+
+
+								<div class="col-md-12 col-xs-12">	
+									<div class="form-group">
+										<label id="rotulo">Observações Adicionais</label>
+										<textarea class="form-control" name="observ" id="observ" rows="2"></textarea>
+									</div>
+								</div>
+
+							</div>
+						</div>
+				</div>
+				
+				
+								
+				<!-- **************************************************************************************************************************************************-->
+
+		</form>
+
+	</body>
+</html>

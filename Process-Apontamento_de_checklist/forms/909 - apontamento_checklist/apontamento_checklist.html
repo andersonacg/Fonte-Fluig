@@ -1,0 +1,162 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script src="lodash.min.js"></script>
+		<script src="formScript.js"></script>
+	</head>
+	
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<div class="well well-lg">
+					<div class="row">
+						<div class="col-xs-12">
+							<h1 class="text-center">Apontamento CheckList</h1>
+							<br><br>
+						</div>
+						<div class="col-md-12 label-header purple">
+							<div>Cabeçalho</div>
+						</div>
+					
+						<div class="col-md-12 form-group">
+					        <label for="checklist">CheckList</label>
+					        <input type="text" class="form-control" id="checklist" name="checklist" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="codigoMovimento">Código Movimento</label>
+					        <input type="text" class="form-control" id="codigoMovimento" name="codigoMovimento" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="codigoProduto">Código Produto</label>
+					        <input type="text" class="form-control" id="codigoProduto" name="codigoProduto" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="descricaoProduto">Descrição do Produto</label>
+					        <input type="text" class="form-control" id="descricaoProduto" name="descricaoProduto" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="baseAtendimento">Base de Atendimento</label>
+					        <input type="text" class="form-control" id="baseAtendimento" name="baseAtendimento" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="numeroPedido">Número do Pedido</label>
+					        <input type="text" class="form-control" id="numeroPedido" name="numeroPedido" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="codigoDocumentoSaida">Código Documento Saída</label>
+					        <input type="text" class="form-control" id="codigoDocumentoSaida" name="codigoDocumentoSaida" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="serieDocumentoSaida">Série Documento Saída</label>
+					        <input type="text" class="form-control" id="serieDocumentoSaida" name="serieDocumentoSaida" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="codigoDocumentoEntrada">Código Documento Entrada</label>
+					        <input type="text" class="form-control" id="codigoDocumentoEntrada" name="codigoDocumentoEntrada" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="serieDocumentoEntrada">Série Documento Entrada</label>
+					        <input type="text" class="form-control" id="serieDocumentoEntrada" name="serieDocumentoEntrada" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="movimento">Movimento</label>
+					        <input type="text" class="form-control" id="movimento" name="movimento" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="codigoLocal">Código Local</label>
+					        <input type="text" class="form-control" id="codigoLocal" name="codigoLocal" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="descricaoLocal">Descrição do Local</label>
+					        <input type="text" class="form-control" id="descricaoLocal" name="descricaoLocal" readonly>
+						</div>
+						
+						<div class="col-md-12 form-group">
+					        <label for="contrato">Contrato</label>
+					        <input type="text" class="form-control" id="contrato" name="contrato" readonly>
+						</div>
+						
+					</div>
+				</div>
+				
+				<div class="well well-lg">
+					<div class="col-md-12 label-header blue">
+							<div>Itens</div>
+					</div>
+					
+					<div class="panel-body">
+						
+							<div class="col-xs-12">
+							
+								<table id="tabelaItens" class="table" tablename="tabelaItens" noaddbutton="true" nodeletebutton="true" width="100%">
+									<thead>
+										<tr>
+											<th>Item CheckList</th>
+											<th>Executado</th>
+											<th>Nome Usuário</th>
+											<th>Data de Execução</th>
+											<th>Hora de Execução</th>
+											<th>Descrição do Item</th>
+											<th>Código do Movimento</th>
+										</tr>
+									</thead>
+									
+									<tbody>
+										<tr>
+											<td>
+												<input type="text" class="form-control" data-item id="itemChecklist" name="itemChecklist" readonly>
+											</td>
+											<td>
+												<select class="form-control" id="executado" name="executado">
+													<option value="0">- Selecione -</option>
+													<option value="Sim">Sim</option>
+													<option value="Não">Não</option>
+												</select>
+											</td>
+											<td>
+												<input type="text" class="form-control" id="nomeUsuario" name="nomeUsuario" readonly>
+											</td>
+											<td>
+												<input type="text" class="form-control" id="dataExecucao" name="dataExecucao" readonly>
+											</td>
+											<td>
+												<input type="text" class="form-control" id="horaExecucao" name="horaExecucao" readonly>
+											</td>
+											<td>
+												<input type="text" class="form-control" id="descricaoItem" name="descricaoItem" readonly>
+											</td>
+											<td>
+												<input type="text" class="form-control" id="codMovimentoItem" name="codMovimentoItem" readonly>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							
+							</div>
+						
+					</div>
+					
+				</div> <!-- /.panel -->
+				
+				<input class="form-control" id="emailUsuario" name="emailUsuario">
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,158 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="http://style.fluig.com/css/fluig-style-guide.min.css">
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache.min.js"></script>
+		<script type="text/javascript" src="http://style.fluig.com/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="estilo.css">
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="titulo"><span class="fluigicon fluigicon-calendar-verified fluigicon-md"></span>&nbsp;&nbsp;Agendamento de Visita Orguel</div>
+							<div class="panel-body">	
+								<div class="col-md-2 col-xs-12">	
+									<label id="texto">Cod.Cliente</label>
+										<div class="input-group">
+											<input class="form-control" type="text" name="cCodClient">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-list fluigicon-sm"></span></span>
+										</div><br>
+								</div>
+								<div class="col-md-2 col-xs-12">	
+									<label id="texto">Cod.Loja</label>
+										<div class="input-group">
+											<input class="form-control" type="text" name="cCodLoja">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-list fluigicon-sm"></span></span>
+										</div><br>
+								</div>
+								<div>								
+									<div class="col-md-5 col-xs-12">
+										<label>Nome do cliente</label>
+											<input
+											class="form-control"
+											type="zoom"
+											id = "cClient"
+											name="mCliente"
+											data-zoom="{
+											'displayKey':'Cliente',
+											'datasetId':'WS_ConsultaCliente',
+											'fields':[
+											{
+											'field':'colleagueId',
+											'label':'ID'
+											},{
+											'field':'colleagueName',
+											'label':'Nome',
+											'standard':'true'
+											},{
+											'field':'login',
+											'label':'Login'
+											}
+											]
+											}" 
+											/>
+									</div>
+								</div>
+								<div class="col-md-1 col-xs-12">	
+									<label id="texto">Dt.Visita</label>
+										<div class="input-group">
+											<input class="form-control" type="date" name="dtVisita">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></span>
+										</div><br>
+								</div>
+								<div class="col-md-4 col-xs-12">	
+									<label id="texto">Nome Grupo</label>
+										<div class="input-group">
+											<input type="text" name="nGroup"  class="form-control">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-group fluigicon-sm"></span></span>
+										</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12" >
+									<label>Situação</label>
+										<select name="situacao1" class="form-control">
+											<option>-SELECIONE-</option>
+										</select><br>
+								</div>
+								<div class="col-md-4 col-xs-12" >
+									<label>Dificudades</label>
+										<select name="dificudades" class="form-control">
+											<option>-SELECIONE-</option>
+										</select><br>
+								</div>
+								<div class="col-md-12 col-xs-12" >
+									<label>Plano</label>
+										<select name="plano" class="form-control">
+											<option>-SELECIONE-</option>
+										</select><br>
+								</div>
+								<div class="col-md-3 col-xs-12" >
+									<label>Tp.Negocio</label>
+										<select name="tNegocio" class="form-control">
+											<option>-SELECIONE-</option>
+										</select><br>
+								</div>
+								<div class="col-md-5 col-xs-12">	
+										<label id="texto">Ocorencia</label>
+											<div class="input-group">
+												<input type="text" name="Ocorrencia" class="form-control">
+												<span class="input-group-addon"><span class="fluigicon fluigicon-exclamation-sign-on fluigicon-sm"></span></span>
+											</div><br>
+								</div>
+								<div class="col-md-5 col-xs-12">	
+										<label id="texto">Obs.Gerente</label>
+											<div class="input-group">
+												<input type="text" name="obsGerente" class="form-control">
+												<span class="input-group-addon"><span class="fluigicon fluigicon-timeline-social fluigicon-sm"></span></span>
+											</div><br>
+								</div>
+								<div class="col-md-2 col-xs-12">	
+									<label id="texto">Aceite</label>
+										<div class="input-group">
+											<input type="text" name="aceite" class="form-control">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-checked fluigicon-sm"></span></span>
+										</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto">Codigo</label>
+										<div class="input-group">
+											<input type="text" name="codigo"  class="form-control">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-list fluigicon-sm"></span></span>
+										</div><br>
+								</div>
+								<div class="col-md-2 col-xs-12">	
+									<label id="texto">Fechada</label>
+										<div class="input-group">
+											<input type="text" name="fechada"  class="form-control" >
+											<span class="input-group-addon"><span class="fluigicon fluigicon-denounce-on fluigicon-sm"></span></span>
+										</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12" >
+									<label>Tipo Cadastro</label>
+										<select name="tCadastro" class="form-control">
+											<option>-SELECIONE-</option>
+										</select><br>
+								</div>
+								<div class="col-md-4 col-xs-12" >
+									<label>Situação</label>
+										<select name="situacao2" class="form-control">
+											<option>-SELECIONE-</option>
+										</select>	<br>
+								</div>
+								<div class="col-md-7 col-xs-12">	
+									<label id="texto">Usuario</label>
+										<div class="input-group">
+											<input type="usuario" name="usuario"  class="form-control">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-users fluigicon-sm"></span></span>
+										</div><br>
+								</div>
+							</div>
+						</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

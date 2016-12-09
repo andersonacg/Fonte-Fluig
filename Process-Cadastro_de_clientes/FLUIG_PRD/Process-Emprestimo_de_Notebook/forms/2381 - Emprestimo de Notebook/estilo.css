@@ -1,0 +1,42 @@
+#titulo{
+	background-color: #359038;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+#tituloTecnico{
+	background-color: #FF5735;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+#tituloRenovacao{
+	background-color: #673ab7;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+#_status{
+    background-color: #359038;
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 15px 8px 15px;
+    border-radius: 5px;
+}
+
+#_renovacao{
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    padding: 8px 15px 8px 15px;
+    border-radius: 5px;
+}
+
+#_status:hover{
+	background-color: #fff;
+    color: #359038;
+	
+}

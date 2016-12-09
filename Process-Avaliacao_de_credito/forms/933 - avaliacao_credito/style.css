@@ -1,0 +1,46 @@
+/* ------------------ PANELS ----------------- */
+
+.fluig-style-guide .panel-orange > .panel-heading {	
+	background-color: #f07d00;
+    color: #fff;
+    border-color: #f07d00;
+}
+
+.fluig-style-guide .panel-red > .panel-heading {	
+	background-color: #e40328;
+    color: #fff;
+    border-color: #e40328;
+}
+
+.fluig-style-guide .panel-blue > .panel-heading {	
+	background-color: #004f9f;
+    color: #fff;
+    border-color: #004f9f;
+}
+
+.fluig-style-guide .panel > .panel-body {	
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.fluig-style-guide .panel-orange > .panel-body {
+	border: 1px solid #f07d00;
+}
+
+.fluig-style-guide .panel-red > .panel-body {	
+    border: 1px solid #e40328;
+}
+
+.fluig-style-guide .panel-blue > .panel-body {	
+    border: 1px solid #004f9f;
+}
+
+/* ------------------ END PANELS ----------------- */
+
+/* ------------------ RADIO BUTTONS ----------------- */
+
+.fluig-style-guide .well .radio input[type=radio], .fluig-style-guide .well .radio-inline input[type=radio] {
+	margin-top: 2px;
+}
+
+/* ------------------ END RADIO BUTTONS ----------------- */

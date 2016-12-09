@@ -1,0 +1,222 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+		<link type="text/css" rel="stylesheet" href="style.css"/>
+		
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../vcXMLRPC.js"></script>
+		<script type="text/javascript" src="formScript.js"></script>
+	</head>
+	
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+			
+				<div class="row">
+					<div class="col-xs-12">
+						<h2>Avaliação de Crédito</h2>
+					</div>
+				</div>
+				
+				<br>
+				
+				<div class="row">
+				
+					<div class="col-xs-6 col-sm-3 form-group">
+				        <label for="codigoFilial">Filial</label>
+				        <input type="text" class="form-control" id="codigoFilial" name="codigoFilial" readonly>
+					</div>
+					
+					<div class="col-xs-6 col-sm-3 form-group">
+				        <label for="codigoAprovacao">Código aprovação</label>
+				        <input type="text" class="form-control" id="codigoAprovacao" name="codigoAprovacao" readonly>
+					</div>
+					
+					<div class="col-xs-6 col-sm-3 form-group">
+				        <label for="codigoDocumento">Documento</label>
+				        <input type="text" class="form-control" id="codigoDocumento" name="codigoDocumento" readonly>
+					</div>
+					
+					<div class="col-xs-6 col-sm-3 form-group">
+				        <label for="nivel">Nível</label>
+				        <input type="text" class="form-control" id="nivel" name="nivel" readonly>
+					</div>
+				
+					<div class="col-xs-12 form-group">
+				        <label for="solicitante">Solicitante</label>
+				        <input type="text" class="form-control" id="solicitante" name="solicitante" readonly>
+					</div>
+					
+					<div class="col-xs-12 form-group">
+				        <label for="justificativaSolicitante">Justificativa solicitante</label>
+				        <textarea rows="5" class="form-control" id="justificativaSolicitante" name="justificativaSolicitante"></textarea>
+					</div>
+					
+				</div><!-- /.row -->
+				
+				<div class="panel panel-orange">
+				
+					<div class="panel-heading">Dados da Operação</div>
+					
+				    <div class="panel-body">
+				        <div class="row">
+				        
+			        		<div class="form-group col-xs-12 col-sm-4">
+						        <label for="origem">Origem</label>
+						        <input type="text" class="form-control" id="origem" name="origem" readonly>
+							</div>
+							
+							<div class="form-group col-xs-12 col-sm-4">
+						        <label for="tipo">Tipo</label>
+						        <input type="text" class="form-control" id="tipo" name="tipo" readonly>
+							</div>
+							
+							<div class="form-group col-xs-12 col-sm-4">
+						        <label for="valorOperacao">Valor da operação</label>
+						        <input type="text" class="form-control" id="valorOperacao" name="valorOperacao" readonly>
+							</div>
+				        	
+				        	<div class="col-xs-12">
+				        		<div class="form-group">
+							        <label for="descricaoOperacao">Descrição da operação</label>
+							        <textarea rows="5" class="form-control" id="descricaoOperacao" name="descricaoOperacao" readonly></textarea>
+								</div>
+				        	</div>
+				        	
+				        </div>
+				    </div>
+				    
+				</div> <!-- /.panel -->
+			
+				<div class="panel panel-red">
+				
+					<div class="panel-heading">Dados do Propect / Cliente</div>
+					
+				    <div class="panel-body">
+				        <div class="row">
+				        
+				        	<div class="col-xs-12 col-sm-6 form-group">
+						        <label for="codigoCliente">Código</label>
+						        <input type="text" class="form-control" id="codigoCliente" name="codigoCliente" readonly>
+							</div>
+							
+							<div class="col-xs-12 col-sm-6 form-group">
+						        <label for="nomeCliente">Nome</label>
+						        <input type="text" class="form-control" id="nomeCliente" name="nomeCliente" readonly>
+							</div>
+							
+							<div class="col-xs-12 form-group">
+						        <label for="receita">Receita último 12 meses</label>
+						        <input type="text" class="form-control" id="receita" name="receita" readonly>
+							</div>
+				        	
+				        	<div class="col-xs-6 form-group">
+						        <label for="totalVencer">Total a vencer</label>
+						        <input type="text" class="form-control" id="totalVencer" name="totalVencer" readonly>
+							</div>
+							
+							<div class="col-xs-6 form-group">
+						        <label for="totalVencido">Total vencido</label>
+						        <input type="text" class="form-control" id="totalVencido" name="totalVencido" readonly>
+							</div>
+							
+							<div class="col-xs-6 form-group">
+						        <label for="limiteDisponivel">Limite disponível</label>
+						        <input type="text" class="form-control" id="limiteDisponivel" name="limiteDisponivel" readonly>
+							</div>
+							
+							<div class="col-xs-6 form-group">
+						        <label for="limiteCredito">Limite de crédito</label>
+						        <input type="text" class="form-control" id="limiteCredito" name="limiteCredito" readonly>
+							</div>
+				        	
+				        </div>
+				    </div>
+				    
+				</div> <!-- /.panel -->
+				
+				
+				<div class="panel panel-blue">
+				
+					<div class="panel-heading">Avaliações</div>
+					
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12">
+							
+								<table tablename="tabelaAvaliacao" noaddbutton="true" nodeletebutton="true" width="100%">
+									<thead>
+										<tr><th></th></tr>
+									</thead>
+									
+									<tbody>
+										<tr>
+											<td>
+												<div class="well">
+													<div class="row">
+													
+														<div class="col-xs-12 form-group">
+															<label for="avaliador">Avaliador</label>
+															<input type="text" class="form-control" id="avaliador" name="avaliador" readonly>
+														</div>
+														
+														<div class="col-xs-12">
+															<div class="radio">
+															    <label class="text-success">
+																    <input type="radio" name="avaliacao" id="aprovado" value="A">
+																    <span class="fluigicon fluigicon-checked"></span> Aprovado
+															    </label>
+														    </div>
+															    
+														    <div class="radio">
+															    <label class="text-danger">
+															    	<input type="radio" name="avaliacao" id="reprovado" value="R">
+															    	<span class="fluigicon fluigicon-remove-circle"></span> Reprovado
+															    </label>
+															</div>
+															
+															<div class="radio">
+															    <label class="text-warning">
+															    	<input type="radio" name="avaliacao" id="reprovado" value="S">
+															    	<span class="fluigicon fluigicon-fileedit"></span> Devolver para correção
+															    </label>
+															</div>
+														</div>
+														
+														<div class="col-xs-12 form-group">
+													        <label for="observacaoAvaliador">Observação do avaliador</label>
+													        <textarea rows="5" class="form-control" id="observacaoAvaliador" name="observacaoAvaliador"></textarea>
+											        	</div>
+														
+													</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							
+							</div>
+						</div>
+					</div>
+					
+				</div> <!-- /.panel -->
+				
+				<!-- campos hidden -->
+				<input type="hidden" id="ultimaAvaliacao" name="ultimaAvaliacao">
+				<input type="hidden" id="ultimaObservacao" name="ultimaObservacao">
+				
+				<input type="hidden" id="proximoAvaliador" name="proximoAvaliador">
+				<input type="hidden" id="emailAvaliador" name="emailAvaliador">
+				<input type="hidden" id="nomeAvaliador" name="nomeAvaliador">
+				
+				<input type="hidden" id="matriculaSolicitante" name="matriculaSolicitante">
+				<input type="hidden" id="emailSolicitante" name="emailSolicitante">
+				
+				<input type="hidden" id="WKNumState" name="WKNumState">
+				
+			</form>
+		</div> <!-- /.fluig-style-guide -->
+	</body>
+</html>

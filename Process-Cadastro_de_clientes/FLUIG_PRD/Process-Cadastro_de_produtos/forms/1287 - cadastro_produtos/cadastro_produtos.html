@@ -1,0 +1,843 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+		<link type="text/css" rel="stylesheet" href="style.css"/>
+		
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../vcXMLRPC.js"></script>
+		<script type="text/javascript" src="formScript.js"></script>
+
+	</head>
+	
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+						
+				<div class="row">
+					<div class="col-xs-12">
+						<h1 class="text-center">Cadastro de Produtos</h1>
+					</div>
+				</div>
+				
+				<br><br>
+				
+				<!-- CADASTRO DE SOLICITANTE -->
+				
+				<div class="panel panel-orange">				
+					<div class="panel-heading">Solicitante</div>
+					<div class="panel-body">
+						<div class="row">							
+							<div class="form-group col-xs-12">
+								<label for="descResum_solicitante">Descrição Resumida</label>
+								<input type="text" class="form-control" id="descResum_solicitante" name="descResum_solicitante">
+							</div>								
+							<div class="form-group col-xs-12">
+								<label for="descDetal_solicitante">Descrição Detalhada</label>
+								<input type="text" class="form-control" id="descDetal_solicitante" name="descDetal_solicitante" >
+							</div>								
+							<div class="form-group col-xs-12 col-md-6">
+								<label for="grupoSub">Grupo e SubGrupo</label>
+								<!-- <select class="form-control" name="grupoSub" >
+									<option value="0">Selecione</option>
+									<option value="equipamentos">Equipamentos</option>
+									<option value="mro">MRO(Manutenção, Reparo e Operação)</option>
+									<option value="servicos">Serviços</option>
+									<option value="imobilizado">Imobilizado Técnico</option>
+								</select> -->
+								<input
+									type="zoom" 
+									id = "grupoSub"
+									name="grupoSub"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_grupo_subGrupo',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>	
+							<div id="display_modelForn" style="display:none">
+								<div class="form-group col-xs-12 col-md-6">
+									<label for="modelo_equipamento">Modelo</label>
+									<input type="text" class="form-control" id="modelo_equipamento" name="modelo_equipamento" >
+								</div>								
+								<div class="form-group col-xs-12 col-md-6">
+										<label for="fornecedor_equipamento">Fornecedor</label>
+										<input type="text" class="form-control" id="fornecedor_equipamento" name="fornecedor_equipamento" >
+								</div>	
+							</div>							
+						</div>							
+					</div>
+				</div> <!-- /.panel -->
+				
+				<!-- CADASTRO DE EQUIPAMENTO -->
+				
+				<div class="panel panel-red" data-patrimonio-equipamento style="display:none">
+					<div class="panel-heading">Patrimônio</div>
+				    <div class="panel-body">
+				        <div class="row">
+				        	<div class="form-group col-xs-12 col-md-6">
+						        <label for="tipo_equipamento">Tipo</label>
+								<input
+									type="zoom" 
+									id = "tipo_equipamento"
+									name="tipo_equipamento"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_tipo_produto',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>
+							<div class="form-group col-xs-12 col-md-3">
+						        <label for="uniMedida_equipamento">Unidade de Medida</label>
+								<input
+									type="zoom" 
+									id = "uniMedida_equipamento"
+									name="uniMedida_equipamento"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_unidade_medida',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>
+				        	<div class="form-group col-xs-12 col-md-3">
+						        <label for="segUniMedida_equipamento">Segunda Unidade de Medida</label>
+								<input
+									type="zoom" 
+									id = "segUniMedida_equipamento"
+									name="segUniMedida_equipamento"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_unidade_medida',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="fatorConversao_equipamento">Fator de Conversão</label>
+						        <input type="text" class="form-control" id="fatorConversao_equipamento" name="fatorConversao_equipamento" >
+							</div>							
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="tpConversao_equipamento">Tipo de Conversão</label>
+								<select class="form-control" name="tpConversao_equipamento" id="tpConversao_equipamento">
+									<option value="0">Selecione</option>
+									<option value="M">Multiplicador</option>
+									<option value="D">Divisor</option>
+								</select>
+							</div>							
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="armPadrao_equipamento">Armazém Padrão</label>
+								<input
+									type="zoom" 
+									id = "armPadrao_equipamento"
+									name="armPadrao_equipamento"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_armazem_padrao',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>				        	
+				        </div>
+				    </div>				    
+				</div> <!-- /.panel -->
+				
+				<div class="panel panel-blue" data-suprimentos-equipamento style="display:none">
+					<div class="panel-heading">Suprimentos</div>
+				    <div class="panel-body">
+				        <div class="row">				        
+				        	<div class="form-group col-xs-12 col-md-4">
+						        <label for="pontoPedido_equipamento">Ponto de Pedido</label>
+						        <input type="text" class="form-control" id="pontoPedido_equipamento" name="pontoPedido_equipamento" >
+							</div>							
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="loteMinCompra_equipamento">Lote Mínimo Compra</label>
+						        <input type="text" class="form-control" id="loteMinCompra_equipamento" name="loteMinCompra_equipamento" >
+							</div>							
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="ltEconomicoCompra_equipamento">Lote Econômico de Compra</label>
+						        <input type="text" class="form-control" id="ltEconomicoCompra_equipamento" name="ltEconomicoCompra_equipamento" >
+							</div>				        	
+				        	<div class="form-group col-xs-12 col-md-6">
+						        <label for="tolReceb_equipamento">Tolerância de Recebimento</label>
+						        <input type="text" class="form-control" id="tolReceb_equipamento" name="tolReceb_equipamento" >
+							</div>							
+							<div class="form-group col-xs-12 col-md-6">
+						        <label for="custoPadrao_equipamento">Custo Padrão</label>
+						        <input type="text" class="form-control" id="custoPadrao_equipamento" name="custoPadrao_equipamento" >
+							</div>							
+				        </div>
+				    </div>				    
+				</div> <!-- /.panel -->
+				
+				<div class="panel panel-green" data-fiscal-equipamento style="display:none">				
+					<div class="panel-heading">Fiscal</div>
+				    <div class="panel-body">
+				        <div class="row">				        
+				        	<div class="form-group col-xs-12 col-md-12">
+						        <label for="gpTributario_equipamento">Grupo Tributário</label>
+								<input
+									type="zoom" 
+									id = "gpTributario_equipamento"
+									name="gpTributario_equipamento"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_grupo_tributario',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>							
+							<div class="form-group col-xs-12 col-md-12">
+						        <label for="aliquota_equipamento">Alíquota</label>
+						        <input type="text" class="form-control" id="aliquota_equipamento" name="aliquota_equipamento" >
+							</div>							
+				        </div>
+				    </div>				    
+				</div> <!-- /.panel -->
+				
+				<!-- FIM CADASTRO DE EQUIPAMENTO -->
+			
+				<!-- CADASTRO DE MRO -->
+				
+				<div class="panel panel-red" data-especialistas-mro style="display:none">				
+					<div class="panel-heading">Especialistas</div>
+				    <div class="panel-body">
+				        <div class="row">				        
+				        	<div class="form-group col-xs-12 col-md-6">
+						        <label for="tipo_MRO">Tipo</label>
+								<input
+									type="zoom" 
+									id = "tipo_MRO"
+									name="tipo_MRO"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_tipo_produto',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>							
+							<div class="form-group col-xs-12 col-md-3">
+						        <label for="uniMedida_MRO">Unidade de Medida</label>
+								<input
+									type="zoom" 
+									id = "uniMedida_MRO"
+									name="uniMedida_MRO"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_unidade_medida',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>				        	
+				        	<div class="form-group col-xs-12 col-md-3">
+						        <label for="segUniMedida_MRO">Segunda Unidade de Medida</label>
+								<input
+									type="zoom" 
+									id = "segUniMedida_MRO"
+									name="segUniMedida_MRO"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_unidade_medida',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>							
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="fatorConversao_MRO">Fator de Conversão</label>
+						        <input type="text" class="form-control" id="fatorConversao_MRO" name="fatorConversao_MRO" >
+							</div>							
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="tpConversao_MRO">Tipo de Conversão</label>
+								<select class="form-control" name="tpConversao_MRO" id="tpConversao_MRO">
+									<option value="0">Selecione</option>
+									<option value="M">Multiplicador</option>
+									<option value="D">Divisor</option>
+								</select>
+							</div>							
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="armPadrao_MRO">Armazém Padrão</label>
+								<input
+									type="zoom" 
+									id = "armPadrao_MRO"
+									name="armPadrao_MRO"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_armazem_padrao',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>				        	
+				        </div>
+				    </div>				    
+				</div> <!-- /.panel -->
+				
+				<div class="panel panel-blue" data-suprimentos-mro style="display:none">				
+					<div class="panel-heading">Suprimentos</div>
+				    <div class="panel-body">
+				        <div class="row">				        
+				        	<div class="form-group col-xs-12 col-md-4">
+						        <label for="pontoPedido_MRO">Ponto de Pedido</label>
+						        <input type="text" class="form-control" id="pontoPedido_MRO" name="pontoPedido_MRO" >
+							</div>							
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="loteMinCompra_MRO">Lote Mínimo Compra</label>
+						        <input type="text" class="form-control" id="loteMinCompra_MRO" name="loteMinCompra_MRO" >
+							</div>							
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="ltEconomicoCompra_MRO">Lote Econômico de Compra</label>
+						        <input type="text" class="form-control" id="ltEconomicoCompra_MRO" name="ltEconomicoCompra_MRO" >
+							</div>				        	
+				        	<div class="form-group col-xs-12 col-md-6">
+						        <label for="tolReceb_MRO">Tolerância de Recebimento</label>
+						        <input type="text" class="form-control" id="tolReceb_MRO" name="tolReceb_MRO" >
+							</div>							
+							<div class="form-group col-xs-12 col-md-6">
+						        <label for="custoPadrao_MRO">Custo Padrão</label>
+						        <input type="text" class="form-control" id="custoPadrao_MRO" name="custoPadrao_MRO" >
+							</div>							
+				        </div>
+				    </div>				    
+				</div> <!-- /.panel -->
+				
+				<div class="panel panel-green" data-fiscal-mro style="display:none">				
+					<div class="panel-heading">Fiscal</div>
+				    <div class="panel-body">
+				        <div class="row">				        
+				        	<div class="form-group col-xs-12">
+						        <label for="gpTributario_MRO">Grupo Tributário</label>
+								<input
+									type="zoom" 
+									id = "gpTributario_MRO"
+									name="gpTributario_MRO"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_grupo_tributario',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>							
+							<div class="form-group col-xs-12">
+						        <label for="aliquota_MRO">Alíquota</label>
+						        <input type="text" class="form-control" id="aliquota_MRO" name="aliquota_MRO" >
+							</div>							
+				        </div>
+				    </div>
+				</div> <!-- /.panel -->
+				
+				<!-- FIM CADASTRO DE MRO -->
+				
+				<!-- CADASTRO DE SERVIÇOS E MATERIAIS -->
+				
+				<div class="panel panel-red" data-suprimentos-materiais style="display:none">
+					<div class="panel-heading">Suprimentos</div>
+				    <div class="panel-body">
+				        <div class="row">
+				        	<div class="form-group col-xs-12 col-md-4">
+						        <label for="tipo_materiais">Tipo</label>
+								<input
+									type="zoom" 
+									id = "tipo_materiais"
+									name="tipo_materiais"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_tipo_produto',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="uniMedida_materiais">Unidade de Medida</label>
+								<input
+									type="zoom" 
+									id = "uniMedida_materiais"
+									name="uniMedida_materiais"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_unidade_medida',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>
+				        	<div class="form-group col-xs-12 col-md-4">
+						        <label for="segUniMedida_materiais">Segunda Unidade de Medida</label>
+								<input
+									type="zoom" 
+									id = "segUniMedida_materiais"
+									name="segUniMedida_materiais"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_unidade_medida',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="fatorConversao_materiais">Fator de Conversão</label>
+						        <input type="text" class="form-control" id="fatorConversao_materiais" name="fatorConversao_materiais" >
+							</div>							
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="tpConversao_materiais">Tipo de Conversão</label>
+								<select class="form-control" name="tpConversao_materiais" id="tpConversao_materiais">
+									<option value="0">Selecione</option>
+									<option value="M">Multiplicador</option>
+									<option value="D">Divisor</option>
+								</select>
+							</div>							
+							<div class="form-group col-xs-12 col-md-4">
+						        <label for="armPadrao_materiais">Armazém Padrão</label>
+								<input
+									type="zoom" 
+									id = "armPadrao_materiais"
+									name="armPadrao_materiais"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_armazem_padrao',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>				        	
+				        </div>
+				    </div>				    
+				</div> <!-- /.panel -->
+				
+				<div class="panel panel-green" data-fiscal-materiais style="display:none">				
+					<div class="panel-heading">Fiscal</div>
+				    <div class="panel-body">
+				        <div class="row">				        
+				        	<div class="form-group col-xs-12">
+						        <label for="gpTributario_materiais">Grupo Tributário</label>
+								<input
+									type="zoom" 
+									id = "gpTributario_materiais"
+									name="gpTributario_materiais"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_grupo_tributario',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>							
+							<div class="form-group col-xs-12">
+						        <label for="aliquota_materiais">Alíquota</label>
+						        <input type="text" class="form-control" id="aliquota_materiais" name="aliquota_materiais" >
+							</div>
+							<div class="form-group col-xs-12">
+						        <label for="codServicoISS_materiais">Código Serviço ISS</label>
+								<input
+									type="zoom" 
+									id = "codServicoISS_materiais"
+									name="codServicoISS_materiais"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_codigo_servico',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>							
+				        </div>
+				    </div>
+				</div> <!-- /.panel -->
+				
+				<!-- FIM CADASTRO DE SERVIÇOS E MATERIAIS -->
+				
+				<!-- CADASTRO DE IMOBILIZADO TÉCNICO -->
+				
+				<div class="panel panel-red" data-suprimentos-imobilizado style="display:none">
+					<div class="panel-heading">Suprimentos</div>
+				    <div class="panel-body">
+				        <div class="row">
+				        	<div class="form-group col-xs-12 col-md-5">
+						        <label for="tipo_imobilizado">Tipo</label>
+								<input
+									type="zoom" 
+									id = "tipo_imobilizado"
+									name="tipo_imobilizado"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_tipo_produto',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>
+							<div class="form-group col-xs-12 col-md-2">
+						        <label for="uniMedida_imobilizado">Unidade de Medida</label>
+								<input
+									type="zoom" 
+									id = "uniMedida_imobilizado"
+									name="uniMedida_imobilizado"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_unidade_medida',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>
+				        	<div class="form-group col-xs-12 col-md-4">
+						        <label for="segUniMedida_imobilizado">Segunda Unidade de Medida</label>
+								<input
+									type="zoom" 
+									id = "segUniMedida_imobilizado"
+									name="segUniMedida_imobilizado"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_unidade_medida',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>
+							<div class="form-group col-xs-12 col-md-2">
+						        <label for="fatorConversao_imobilizado">Fator de Conversão</label>
+						        <input type="text" class="form-control" id="fatorConversao_imobilizado" name="fatorConversao_imobilizado" >
+							</div>							
+							<div class="form-group col-xs-12 col-md-3">
+						        <label for="tpConversao_imobilizado">Tipo de Conversão</label>
+								<select class="form-control" name="tpConversao_imobilizado" id="tpConversao_imobilizado">
+									<option value="0">Selecione</option>
+									<option value="M">Multiplicador</option>
+									<option value="D">Divisor</option>
+								</select>
+							</div>							
+							<div class="form-group col-xs-12 col-md-3">
+						        <label for="armPadrao_imobilizado">Armazém Padrão</label>
+								<input
+									type="zoom" 
+									id = "armPadrao_imobilizado"
+									name="armPadrao_imobilizado"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_armazem_padrao',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>				        	
+				        </div>
+				    </div>				    
+				</div> <!-- /.panel -->
+				
+				<div class="panel panel-green" data-fiscal-imobilizado style="display:none">				
+					<div class="panel-heading">Fiscal</div>
+				    <div class="panel-body">
+				        <div class="row">				        
+				        	<div class="form-group col-xs-12">
+						        <label for="gpTributario_imobilizado">Grupo Tributário</label>
+								<input
+									type="zoom" 
+									id = "gpTributario_imobilizado"
+									name="gpTributario_imobilizado"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_grupo_tributario',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>
+							<div class="form-group col-xs-12">
+						        <label for="ncm_imobilizado">NCM</label>
+								<input
+									type="zoom" 
+									id = "ncm_imobilizado"
+									name="ncm_imobilizado"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_ncm',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Descrição',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>							
+							<div class="form-group col-xs-12">
+						        <label for="aliquota_imobilizado">Alíquota</label>
+						        <input type="text" class="form-control" id="aliquota_imobilizado" name="aliquota_imobilizado" >
+							</div>
+				        </div>
+				    </div>
+				</div> <!-- /.panel -->
+				
+				<!-- FIM CADASTRO DE IMOBILIZADO TÉCNICO -->
+				
+				<!-- CAMPOS OCULTOS -->				
+				<input type="hidden" class="form-control" id="cod_atividade_final" name="cod_atividade_final" >
+				
+			</form>
+		</div> <!--  /.fluig-style-guide -->
+	</body>
+</html>

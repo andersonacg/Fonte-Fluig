@@ -1,0 +1,282 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="formScript.js"></script>
+		<script type="text/javascript" src="../vcXMLRPC.js"></script>
+		<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>		
+		<style>
+			#sombra{
+			   background-color: rgb(0, 80, 159);
+			   padding: 20px;				
+			   -moz-border-radius: 7px;
+			   -webkit-border-radius: 7px;
+				
+			   box-shadow: 15px -10px 3px #4F4F4F;
+			   -webkit-box-shadow: 15px -10px 3px #4F4F4F;
+			   -moz-box-shadow: 15px -10px 3px #4F4F4F;
+			}
+			
+			label{
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form class="form-horizontal" role="form">	
+				<h1 class="text-center"><img src="http://177.190.131.27:8080/volume/stream/Rmx1aWc=/P3Q9MSZ2b2w9RGVmYXVsdCZpZD04NTAmdmVyPTEwMDAmZmlsZT1sb2dvLnBuZyZjcmM9MTgzMDc1Mzg4MyZzaXplPTAuMDAzNTQzJnVJZD00MiZmU0lkPTImdVNJZD0y.png" class="logo" /><b>Contrato e Locação</b></h1>
+				<br /><br />
+				<div id="sombra">
+					<div class="form-group">
+						<div class="col-xs-12 col-md-5">
+							<label for="filial">Filial</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-home fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="filial" id="filial" readonly>
+							</div>
+						</div>					
+						<div class="col-xs-12 col-md-2">
+							<label for="orcamento">Orçamento</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-money fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="orcamento" id="orcamento" readonly>
+							</div>
+						</div>					
+						<div class="col-xs-12 col-md-5">
+							<label for="proposta">Proposta</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-pencil fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="proposta" id="proposta" readonly>
+							</div>
+						</div>	
+					</div>
+					<div class="form-group" data-contrato style="display:none">
+						<div class="col-xs-12 col-md-6">
+							<label for="contrato">Contrato</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-paste fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="contrato" id="contrato" readonly>
+							</div>
+						</div>					
+						<div class="col-xs-12 col-md-6">
+							<label for="revContrato">Revisão do Contrato</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-paste fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="revContrato" id="revContrato" readonly>
+							</div>
+						</div>	
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-md-6">
+							<label for="vendedor">Vendedor</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-user fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="vendedor" id="vendedor" readonly>
+							</div>
+						</div>					
+						<div class="col-xs-12 col-md-6">
+							<label for="cliente">Cliente</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-user fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="cliente" id="cliente" readonly>
+							</div>
+						</div>					
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-md-5">
+							<label for="tpContrato">Tipo de Contrato</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-fileedit fluigicon-sm"></span></div>
+								<input
+									type="zoom" 
+									id = "tpContrato"
+									name="tpContrato"	
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_tipo_contrato',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Tipo de Contrato',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>
+						</div>					
+						<div class="col-xs-12 col-md-5">
+							<label for="condPagamento">Condição de Pagamento</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-money-circle fluigicon-sm"></span></div>
+								<input
+									type="zoom" 
+									id = "condPagamento"
+									name="condPagamento"												
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_cond_pagamento',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Condição de Pagamento',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>
+						</div>					
+						<div class="col-xs-12 col-md-2">
+							<label for="reajContrato">Reajusta Contrato?</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-fileedit fluigicon-sm"></span></div>
+								<select class="form-control" name="reajContrato">
+									<option value="0">Selecione</option>
+									<option value="Sim">SIM</option>
+									<option value="Nao">NÃO</option>
+								</select>
+							</div>
+						</div>					
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-md-4" id="fs_indContrato">
+							<label for="indContrato">Índice do Contrato</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-paste fluigicon-sm"></span></div>
+								<input
+									type="zoom" 
+									id = "indContrato"
+									name="indContrato"	
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_indice_contrato',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Índice de Contrato',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  /> 
+							</div>
+						</div>					
+						<div class="col-xs-12 col-md-4">
+							<label for="tpPlanilha">Tipo de Planilha</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-paste fluigicon-sm"></span></div>
+								<input
+									type="zoom" 
+									id = "tpPlanilha"
+									name="tpPlanilha"	
+									data-zoom="{
+									'displayKey':'CCODRET',
+									'datasetId':'ds_tipo_planilha',
+									'filterValues':'',
+									'fields':[
+										{
+										  'field':'CCODRET',
+										  'label':'Codigo',
+										  'search':'true'
+										},
+										{
+										  'field':'CMSGRET',
+										  'label':'Tipo de Planilha',
+										  'standard':'true',
+										  'search':'true'
+										}
+									  ]
+									 }"  />
+							</div>
+						</div>					
+						<div class="col-xs-12 col-md-4">
+							<label for="reajPlanilha">Reajusta Planilha</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-paste fluigicon-sm"></span></div>
+								<select class="form-control" name="reajPlanilha">
+									<option value="0">Selecione</option>
+									<option value="Sim">SIM</option>
+									<option value="Nao">NÃO</option>
+								</select>
+							</div>
+						</div>					
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-md-4">
+							<label for="caucao">Caução</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-money-circle fluigicon-sm"></span></div>
+								<select class="form-control" name="caucao" id="caucao">
+									<option value="0">Selecione</option>
+									<option value="Sim">SIM</option>
+									<option value="Nao">NÃO</option>
+								</select>
+							</div>
+						</div>					
+						<div class="col-xs-12 col-md-4">
+							<label for="perCaucao">Percentual Calção</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-money-circle fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="perCaucao" id="perCaucao" readonly>
+							</div>
+						</div>	
+						<div class="col-xs-12 col-md-4">
+							<label for="dtAssinatura">Dt Assinatura-Proposta</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="dtAssinatura" id="dtAssinatura" readonly>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-md-4">
+							<label for="dateInicio">Dt Início-Contrato</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="dateInicio" id="dateInicio">
+							</div>
+						</div>					
+						<div class="col-xs-12 col-md-4">
+							<label for="dateFinal">Dt Final-Contrato</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="dateFinal" id="dateFinal">
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-4" data-assinatura-contrato style="display:none">
+							<label for="dateAssinaturaContrato">Dt Assinatura-Contrato</label>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></div>
+								<input type="text" class="form-control" name="dateAssinaturaContrato" id="dateAssinaturaContrato">
+							</div>
+						</div>
+						<input type="hidden" class="form-control" name="codUsuario" id="codUsuario">
+						<input type="hidden" class="form-control" name="startProtheus" id="startProtheus" value="false">
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

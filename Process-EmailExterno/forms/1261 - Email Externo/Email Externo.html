@@ -1,0 +1,657 @@
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US-x-Hixie">
+	<head>
+		<link type="text/css" rel="stylesheet" href="http://style.fluig.com/css/fluig-style-guide.min.css">
+		<link rel="stylesheet" type="text/css" href="/portal/resources/style-guide/css/fluig-style-guide.min.css">
+		<script src="/portal/resources/js/jquery/jquery.js"></script>
+		<script src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script src="/portal/resources/style-guide/js/fluig-style-guide.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css">
+		<link rel="stylesheet" type="text/css" href="estilo.css">
+		<link rel="stylesheet" type="text/css" href="css/fluig-style-guide.min.css">
+		<meta charset="UTF-8">
+			<script>
+				var uPreventiva = FLUIGC.calendar('#uPreventiva');
+			</script>
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="titulo"><span class="fluigicon fluigicon-home fluigicon-md"></span>&nbsp;&nbsp;Informações Iniciais da Ocorrencia</div>
+							<div class="panel-body">	
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Data do chamado</label>
+										<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-calendar-verified fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="dataChamado">							
+										</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Hora do chamado</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-time fluigicon-sm"></span></span>
+											<input class="form-control" type="time" name="horaChamado">											
+										</div><br>
+								</div>
+								<div class="col-md-4 col-xs-12" >
+									<label><span style="color: #f00;">*</span>Unidade</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-company fluigicon-sm"></span></span>
+										<select name="unidade" class="form-control">
+											<option>-INFORME A UNIDADE-</option>
+											  <option>Centro Operacional Grupo Orguel Cabo de Santo Agostinho</option>
+											  <option>Centro Operacional Grupo Orguel Campinas</option>
+											  <option>Centro Operacional Grupo Orguel Guarulhos</option>
+											  <option>Centro Operacional Grupo Orguel Rio de Janeiro</option>
+											  <option>Centro Operacional Grupo Orguel Serra</option>
+											  <option>Centro Operacional Grupo Orguel São José dos Campos</option>
+											  <option>Centro Operacional Grupo Orguel Vespasiano</option>
+											  <option>Filial Grupo Orguel Altamira</option>
+											  <option>Filial Grupo Orguel Anápolis</option>
+											  <option>Filial Grupo Orguel Betim</option>
+											  <option>Filial Grupo Orguel Brasília</option>
+											  <option>Filial Grupo Orguel Cachoeirinha</option>
+											  <option>Filial Grupo Orguel Curitiba</option>
+											  <option>Filial Grupo Orguel Fortaleza</option>
+											  <option>Filial Grupo Orguel Goiânia</option>
+											  <option>Filial Grupo Orguel Macaé</option>
+											  <option>Filial Grupo Orguel Ribeirão Preto</option>
+											  <option>Filial Grupo Orguel Salvador</option>
+											  <option>Filial Grupo Orguel Uberaba</option>
+											  <option>Filial Grupo Orguel Uberlândia</option>
+											  <option>Filial Grupo Orguel Valparaíso</option>
+											  <option>Sede do Grupo Orguel</option>
+
+										</select><br>
+									</div>
+										
+								</div>
+								<div class="col-md-2 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Numero da O.S</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-tag fluigicon-sm"></span></span>
+										
+											<input class="form-control" type="number" name="numOS">											
+										</div><br>
+								</div>
+								<div>
+								
+									<div class="col-md-6 col-xs-12">
+										<label><span style="color: #f00;">*</span>Nome do Cliente</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-addusers fluigicon-sm"></span></span>
+											<input
+											class="form-control"
+											type="zoom"
+											id = "nomeCliente"
+											name="nomeCliente"
+											data-zoom="{
+											'displayKey':'Cliente',
+											'datasetId':'WS_ConsultaCliente',
+											'fields':[
+											{
+											'field':'Cliente',
+											'label':'Nome do Cliente',
+											'standard':'true'
+											}
+											]
+											}" 
+											/>
+										</div>	
+									</div>
+								</div>
+								<div class="col-md-6 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Endereço</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-map-marker fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="enderco">											
+										</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Contato</label>
+										<div class="input-group">											
+											<span class="input-group-addon"><span class="fluigicon fluigicon-moderator fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="contato">
+										</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Telefone</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-phone fluigicon-sm"></span></span>
+											<input type="text" name="telContato"  class="form-control">											
+										</div><br>
+								</div>
+		
+
+								<div class="col-md-6 col-xs-12">	
+										<label id="texto"><span style="color: #f00;">*</span>Email</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-envelopes fluigicon-sm"></span></span>
+												<input type="text" name="emailContato" class="form-control">
+												
+											</div><br>
+								</div>
+								<div class="col-md-4 col-xs-12">	
+										<label id="texto"><span style="color: #f00;">*</span>Nº de Contato</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-mobile-on fluigicon-sm"></span></span>
+												<input type="text" name="numContato" class="form-control">
+												
+											</div><br>
+								</div>
+								
+								
+
+							</div>
+						</div>
+				</div>
+				
+				<!-- **************************************************************************************************************************************************-->
+				
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="titulo"><span class="fluigicon fluigicon-info-sign fluigicon-md"></span>&nbsp;&nbsp;Informações do Equipamento</div>
+							<div class="panel-body">	
+								<div class="col-md-3 col-xs-12" >
+									<label><span style="color: #f00;">*</span>Equipamento</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-search fluigicon-sm"></span></span>
+										<select name="equipamento" class="form-control">
+											<option>-SELECIONE-</option>
+											<option>Bomba</option>
+											<option>Compressor</option>
+											<option>Gerador</option>
+											<option>Plataforma</option>
+											<option>Torre</option>
+											<option>Elevador</option>
+											<option>Balancim</option>
+											<option>Guincho</option>
+										</select><br>
+									</div>
+								</div>
+								<div class="col-md-3 col-xs-12" >
+									<label><span style="color: #f00;">*</span>Modelo</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-zoom-in fluigicon-sm"></span></span>
+										<select name="modelo" class="form-control">
+											<option>-SELECIONE-</option>
+											<option> - BOMBA - </option>
+											<option> BS2102  - BOMBA SUBMERSIVEL 8</option>
+											<option> BS2125 - BOMBA SUBMERSIVEL 13</option>
+											<option> BS2151 - BOMBA SUBMERSIVEL 30</option>
+											<option> BS2250 - BOMBA SUBMERSIVEL 8</option>
+											<option> BSMATADOR - BOMBA SUBMERSIVEL 30</option>
+											<option> - COMPRESSOR - </option>
+											<option> CO1000PCM - COMPRESSOR DE AR 100</option>
+											<option> CO260PCM - COMPRESSOR DE AR 260</option>
+											<option> CO275PCM - COMPRESSOR DE AR 275</option>
+											<option> CO900PCM - COMPRESSOR DE AR 900</option>
+											<option> - ELEVADOR CREMALHEIRA - </option>
+											<option> ECCMG1200 - ELEVADOR CREMALHEIRA</option>
+											<option> ECCMG2000 - ELEVADOR CREMALHEIRA</option>
+											<option> ECRACK1500 - ELEVADOR CREMALHEIRA</option>
+											<option> ECRACK2000 - ELEVADOR CREMALHEIRA</option>
+											<option> - GUINCHO - </option>
+											<option> GBELETRICO - GUINCHO BALANCIM ELE</option>
+											<option> GBMANUAL - GUINCHO BALANCIM MAN</option>
+											<option> - GERADOR - </option>
+											<option> GE115KVA - GRUPO MOTO GERADOR 1</option>
+											<option> GE150KVA - GRUPO MOTO GERADOR 1</option>
+											<option> GE180KVA - GRUPO MOTO GERADOR 1</option>
+											<option> GE180KVAA - GRUPO MOTO GERADOR 1</option>
+											<option> GE20KVA - GRUPO MOTO GERADOR 2</option>
+											<option> GE260KVA - GRUPO MOTO GERADOR 2</option>
+											<option> GE260KVAA - GRUPO MOTO GERADOR 2</option>
+											<option> GE300KVA - GRUPO MOTO GERADOR 3</option>
+											<option> GE320KVAA - GRUPO MOTO GERADOR 3</option>
+											<option> GE40KVAA - GRUPO MOTO GERADOR 4</option>
+											<option> GE500KVA - GRUPO MOTO GERADOR 5</option>
+											<option> GE500KVAP - GRUPO MOTO GERADOR 5</option>
+											<option> GE60KVA - GRUPO MOTO GERADOR 6</option>
+											<option> GE60KVAA - GRUPO MOTO GERADOR 6</option>
+											<option> GE700KVAP - GRUPO MOTO GERADOR 7</option>
+											<option> - GUINCHO - </option>
+											<option> GMP0507 - GUINCHO MEDIO PORTE</option>
+											<option> GPPMAX500 - GUINCHO PEQUENO PORT</option>
+											<option> - PLATAFORMA - </option>
+											<option> PE4069LEE - PLATAFORMA ELEVATORI</option>
+											<option>PE600AJD - PLATAFORMA ELEVATORI</option>
+											<option>PE800AJD - PLATAFORMA ELEVATORI</option>
+											<option>PECPT10E - PLATAFORMA ELEVATORI</option>
+											<option>PECPT12D - PLATAFORMA ELEVATORI</option>
+											<option>PECPT12E - PLATAFORMA ELEVATORI</option>
+											<option>PECPT14E - PLATAFORMA ELEVATORI</option>
+											<option>PEGS1930E - PLATAFORMA ELEVATORI</option>
+											<option>PEGS2032E - PLATAFORMA ELEVATORI</option>
+											<option>PEGS2632E - PLATAFORMA ELEVATORI</option>
+											<option>PEGS2646E - PLATAFORMA ELEVATORI</option>
+											<option>PEGS3246E - PLATAFORMA ELEVATORI</option>
+											<option>PEGS3268E - PLATAFORMA ELEVATORI</option>
+											<option>PEGS4390D - PLATAFORMA ELEVATORI</option>
+											<option>PEH15SXD - PLATAFORMA ELEVATORI</option>
+											<option>PEHA120PXD - PLATAFORMA ELEVATORI</option>
+											<option>PEHA15IPE - PLATAFORMA ELEVATORI</option>
+											<option>PEHA16SPXD - PLATAFORMA ELEVATORI</option>
+											<option>PEOPT8E - PLATAFORMA ELEVATORI</option>
+											<option>PES105D - PLATAFORMA ELEVATORI</option>
+											<option>PES125D - PLATAFORMA ELEVATORI</option>
+											<option>PEZ135D - PLATAFORMA ELEVATORI</option>
+											<option>PEZ34D - PLATAFORMA ELEVATORI</option>
+											<option>PEZ34E - PLATAFORMA ELEVATORI</option>
+											<option>PEZ45DCE - PLATAFORMA ELEVATORI</option>
+											<option>PEZ45JDCE - PLATAFORMA ELEVATORI</option>
+											<option>PEZ45RTD - PLATAFORMA ELEVATORI</option>
+											<option>PEZ60D - PLATAFORMA ELEVATORI</option>
+											<option>PEZ80D - PLATAFORMA ELEVATORI</option>
+											<option>PLA0001 - PLATAFORMA JLG 30M</option>
+											<option> - TORRE - </option>
+											<option>TI4000W - TORRE DE ILUMINAÇÃO</option>
+											<option>TI5000W - TORRE DE ILUMINAÇÃO</option>
+
+										</select><br>
+									</div>
+								</div>
+
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>NP/Série</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-list fluigicon-sm"></span></span>
+											<input type="text" name="nSerie"  class="form-control">
+										</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto">Última Preventiva</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></span>
+											<input type="date" name="uPreventiva"  class="form-control">
+											
+										</div><br>
+								</div>
+		
+
+								<div class="col-md-3 col-xs-12">	
+										<label id="texto">Horímetro</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-time fluigicon-sm"></span></span>
+												<input type="text" name="horimetro" class="form-control">
+												
+											</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12">	
+										<label id="texto">Horímetro ùtimo MNT</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-time fluigicon-sm"></span></span>
+												<input type="text" name="horimetroMNT" class="form-control">
+												
+											</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12" >
+									<label>Ambiente de trabalho</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-tests-central fluigicon-sm"></span></span>
+										<select name="ambTrab" class="form-control">
+											<option>-INFORME-</option>
+											<option>BOM</option>
+											<option>REGULAR</option>
+											<option>RUIM</option>
+										</select><br>
+									</div>
+								</div>
+								<div class="col-md-3 col-xs-12" >
+									<label>Equipamento estava parado</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-user-selection fluigicon-sm"></span></span>
+										<select name="equipParado" class="form-control">
+											<option>-SELECIONE-</option>
+											<option>SIM</option>
+											<option>NÃO</option>
+										</select><br>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+				
+								
+				<!-- **************************************************************************************************************************************************-->
+				
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="titulo"><span class="fluigicon fluigicon-process-adhoc fluigicon-md"></span>&nbsp;&nbsp;Tipo de Serviço</div>
+							<div class="panel-body">	
+								<div class="col-md-7 col-xs-12" >
+									<label><span style="color: #f00;">*</span>Serviço</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-system-tools fluigicon-sm"></span></span>
+										<select name="servico" class="form-control">
+											<option>-SELECIONE-</option>
+											<option>Preventiva</option>
+											<option>Corretiva Elétrica</option>
+											<option>Corretiva Hidráulica</option>
+											<option>Corretiva Mecânica</option>
+											<option>Assistência Técnica</option>
+											<option>Visita Técnica</option>
+											<option>Operação Assistida</option>
+											<option>Entrega Técnica</option>
+											<option>Inspeção</option>
+											<option>Treinamento</option>
+											<option>Montagem</option>
+											<option>Desmontagem</option>
+											<option>Levante</option>
+											<option>Movimentação de Balancim</option>
+											<option>Liberação de Equipamento</option>
+											<option>Retorno de Locação</option>
+										</select><br>
+									</div><br>
+								</div>
+								<div class="col-md-6 col-xs-12">	
+									<div class="form-group">
+										<label id="rotulo"><span style="color: #f00;">*</span>Defeito reclamado</label>
+										<textarea class="form-control" name="dReclamado" id="dReclamado" rows="2"></textarea>
+									</div>
+								</div>
+								<div class="col-md-6 col-xs-12">	
+									<div class="form-group">
+										<label id="rotulo"><span style="color: #f00;">*</span>Defeito encontrado</label>
+										<textarea class="form-control" name="dencontrado" id="dencontrado" rows="2"></textarea>
+									</div>
+								</div>
+								<div class="col-md-6 col-xs-12">	
+									<div class="form-group">
+										<label id="rotulo"><span style="color: #f00;">*</span>Pendencias</label>
+										<textarea class="form-control" name="pendecias" id="pendecias" rows="2"></textarea>
+									</div>
+								</div>
+								<div class="col-md-6 col-xs-12">	
+									<div class="form-group">
+										<label id="rotulo"><span style="color: #f00;">*</span>Serviço executado</label>
+										<textarea class="form-control" name="sexecutado" id="sexecutado" rows="2"></textarea>
+									</div>
+								</div>
+								<div class="col-md-3 col-xs-12" >
+									<label><span style="color: #f00;">*</span>Houve falha de operação</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-process-automatic-send fluigicon-sm"></span></span>
+										<select name="houveOp" class="form-control">
+											<option>-SELECIONE-</option>
+											<option>SIM</option>
+											<option>NÃO</option>
+										</select><br>
+									</div><br>
+								</div>
+								<div class="col-md-12 col-xs-12">	
+									<div class="form-group">
+										<label id="rotulo">Observações</label>
+										<textarea class="form-control" name="observ" id="observ" rows="2"></textarea>
+									</div>
+								</div>
+
+							</div>
+						</div>
+				</div>
+				
+				
+								
+				<!-- **************************************************************************************************************************************************-->
+			<div id="preechTec" name="preechTec">	
+			
+			<div class="form-group">
+										<div class="form-input">
+						<table tablename="tabledetailname1" width="100%" cellspacing="0" class="table" id="tabela_calcular" addbuttonlabel="Adicionar Registro">
+						<div class="form-group">
+						    <thead>
+						        <tr class="tableHeadRow">
+						            <th class="tableColumn">Quantidade</th>
+						            <th class="tableColumn">Código</th>
+									<th class="tableColumn">Descrição</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						        <tr>
+										<td>
+						        			<input type="text" name="Qtd" id="Qtd" class="form-control">
+						                </td>
+						                <td>
+						                    <input type="text" name="codigo" id="codigo" class="form-control">
+						                </td>
+						                <td>
+						                    <input type="text" name="Descricao" id="Descricao" class="form-control">
+						                </td>
+						        </tr>
+						    </tbody>
+						   </div>
+						</table>
+					</div>
+				</div>
+
+				
+				
+								
+				<!-- **************************************************************************************************************************************************-->
+				
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="tituloTecnico"><span class="fluigicon fluigicon-activity-list-pending fluigicon-md"></span>&nbsp;&nbsp;Apontamento</div>
+							<div class="panel-body">
+								<div class="col-md-7 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Técnico</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-community-edit fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="nomeTecnico">
+											
+										</div><br>
+								</div>	
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Placa do Veiculo</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-gamification-car fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="placaVeiculo" mask="SSS 0000">
+										</div><br>
+								</div>
+								<div class="col-md-5 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Hora do saida</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-time fluigicon-sm"></span></span>
+											<input class="form-control" type="time" name="horaSaida">
+										</div><br>
+								</div>
+							
+								<div class="col-md-5 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>KM</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-gamification-flag fluigicon-sm"></span></span>
+											<input class="form-control" type="number" name="KMhoraSaida">
+											
+										</div><br>
+								</div>
+								<div class="col-md-5 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Chegada no cliente</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-time fluigicon-sm"></span></span>
+											<input type="time" name="chegadoCliente"  class="form-control">
+											
+										</div><br>
+								</div>
+		
+
+								<div class="col-md-5 col-xs-12">	
+										<label id="texto"><span style="color: #f00;">*</span>KM</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-gamification-flag fluigicon-sm"></span></span>
+												<input type="number" name="KMchegadoCliente" class="form-control">
+												
+											</div><br>
+								</div>
+								<div class="col-md-5 col-xs-12">	
+										<label id="texto"><span style="color: #f00;">*</span>Inicio do servico</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-time fluigicon-sm"></span></span>
+												<input type="time" name="inicioServico" class="form-control">
+												
+											</div><br>
+								</div>
+								<div class="col-md-5 col-xs-12">	
+										<label id="texto"><span style="color: #f00;">*</span>KM</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-gamification-flag fluigicon-sm"></span></span>
+												<input type="number" name="KMinicioServico" class="form-control">
+												
+											</div><br>
+								</div>
+								<div class="col-md-5 col-xs-12">	
+										<label id="texto"><span style="color: #f00;">*</span>Termino do servico</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-time fluigicon-sm"></span></span>
+												<input type="time" name="terminoServico" class="form-control">
+												
+											</div><br>
+								</div>
+								<div class="col-md-5 col-xs-12">	
+										<label id="texto"><span style="color: #f00;">*</span>KM</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-gamification-flag fluigicon-sm"></span></span>
+												<input type="number" name="KMtermonoServico" class="form-control">
+												
+											</div><br>
+								</div>
+								<div class="col-md-5 col-xs-12">	
+										<label id="texto"><span style="color: #f00;">*</span>Chegada no Destino Final</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-time fluigicon-sm"></span></span>
+												<input type="time" name="destinoFinal" class="form-control">
+												
+											</div><br>
+								</div>
+								<div class="col-md-5 col-xs-12">	
+										<label id="texto"><span style="color: #f00;">*</span>KM</label>
+											<div class="input-group">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-gamification-flag fluigicon-sm"></span></span>
+												<input type="number" name="KMdestinoFinal" class="form-control">
+												
+											</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12" >
+									<label><span style="color: #f00;">*</span>Equipamento ficou funcionando</label>
+									<div class="input-group">
+									<span class="input-group-addon"><span class="fluigicon fluigicon-questions fluigicon-sm"></span></span>
+										<select name="equipFuncio" class="form-control">
+											<option>-INFORME-</option>
+											<option>SIM</option>
+											<option>NÃO</option>
+										</select><br>
+									<div>
+								</div>
+
+							</div>
+						</div>
+				</div>
+				<!-- **************************************************************************************************************************************************-->
+				
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="tituloTecnico"><span class="fluigicon fluigicon-activity-list-pending fluigicon-md"></span>&nbsp;&nbsp;Gastos Gerais com atendimento</div>
+							<div class="panel-body">
+								<div class="col-md-7 col-xs-12">	
+									<label id="texto">Hotel</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-home fluigicon-sm"></span></span>
+											<input class="form-control" type="number" name="hotel">
+										</div><br>
+								</div>	
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto">Alimentação</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-food fluigicon-sm"></span></span>
+											<input class="form-control" type="number" name="alimentacao">
+											
+										</div><br>
+								</div>
+								<div class="col-md-5 col-xs-12">	
+									<label id="texto">Peças externas</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-hammer fluigicon-sm"></span></span>
+											<input class="form-control" type="number" name="pExternas">
+											
+										</div><br>
+								</div>
+
+							</div>
+						</div>
+				</div>
+				<!-- **************************************************************************************************************************************************-->
+				
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="tituloTecnico"><span class="fluigicon fluigicon-enrollment-status fluigicon-md"></span>&nbsp;&nbsp;Declaramos estar de acordo com as informações relatadas neste relatório de serviço.</div>
+							<div class="panel-body">	
+							
+								<div class="col-md-5 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Responsável do cliente</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-community-selection fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="respCliente" id="respCliente">
+											
+										</div><br>
+								</div>
+							
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Documento</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-user-card fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="document" id="disabledInput">
+											
+										</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>Cargo</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-user-role fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="cargo">
+											
+										</div><br>
+								</div>
+								<div class="col-md-3 col-xs-12">	
+									<label id="texto"><span style="color: #f00;">*</span>ID do Documento</label>
+										<div class="input-group">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-file-doc fluigicon-sm"></span></span>
+											<input class="form-control" type="text" name="idDocument" id="idDocument">
+											
+										</div><br>
+								</div>
+
+
+							</div>
+						</div>
+				</div>
+				<!-- **************************************************************************************************************************************************-->
+				
+				<div class="form-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="tituloTecnico"><span class="fluigicon fluigicon-pen fluigicon-md"></span>&nbsp;&nbsp;Campo para realizar a inclusão de sua assinatura.</div>
+							<div class="panel-body">	
+							<script src="signature.js"></script>
+							<table class="table">
+								<tr>
+									<td>
+										<div id="canvas">
+											<canvas class="roundCorners" id="newSignature" style="border: 1px solid #000;"></canvas>
+										</div>
+									</td>
+								</tr>
+							</table>
+								<script>signatureCapture();</script>
+
+								<button type="button" class="btn btn-primary" onclick="signatureSave()" >Salvar Assinatura</button>
+								<button type="button" class="btn btn-primary" onclick="signatureClear()">Limpar Assinatura</button>
+
+							</div>
+						</div>
+				</div>
+			</div>
+				
+			</form>
+		</div>
+	</body>
+</html>

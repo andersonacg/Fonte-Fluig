@@ -1,0 +1,75 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	
+<script type="text/javascript">
+	
+	function createModal() {
+		var myModal = FLUIGC.modal({
+	    	title: 'Modal de teste',
+	    	content: '<script src="signature.js"></script>\
+	    		<div id="canvas">\
+	    		<canvas class="roundCorners" id="newSignature"\
+	    		style="position: relative; margin: 0; padding: 0; border: 1px solid #c4caac;"></canvas>\
+	    		</div>\
+	    		<script>\
+	    		signatureCapture();\
+	    		</script>\
+	    		<button type="button" class="btn btn-primary" onclick="signatureSave()" >\
+	    		Salvar Assinatura\
+	    		</button>\
+	    		<button type="button" class="btn btn-primary" onclick="signatureClear()">\
+	    		Limpar Assinatura\
+	    		</button>\
+	    		</br>\
+	    		PNG\
+	    		</br>\
+	    		<img name="saveSignature" alt="Saved image png"/><br>',
+	    	id: 'fluig-modal',
+	    	 size: 'full',
+	    	actions: [{
+	        	'label': 'salvar',
+	        	'bind': 'data-open-modal',
+	    	},{
+	        	'label': 'sair',
+	        	'autoClose': true
+	    	}]
+		}, function(err, data) {
+		    if(err) {
+		        // do error handling
+		    } else {
+		        // do something with data
+		    }
+		});		
+	}
+
+</script>
+</head>
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+		
+			<div class="form-group">
+				<label for="inputEmail">Email</label>
+				<input class="form-control" type="email" name="inputEmail" id="inputEmail"> 
+			</div>
+			
+			<div class="form-group">
+				<label for="inputEmail">Nome</label>
+				<input class="form-control" type="text" name="inputName" id="inputName"> 
+			</div>
+			
+			<button class="btn btn-primary" onclick="createModal()">Abrir a modal</button>
+			
+		</form>
+	</div>
+</body>
+
+
+
+</html>

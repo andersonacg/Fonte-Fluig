@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.2.v201410272105 Build &lt;4.4.2.v20150217-1805></property>
+    <property name="units">in</property>
+    <method name="initialize"><![CDATA[
+importPackage(Packages.com.datasul.technology.webdesk.dataset.service);
+importPackage(Packages.com.datasul.technology.webdesk.dataset);
+importPackage(Packages.com.datasul.technology.webdesk.search.controller);
+importPackage(Packages.java.util);
+var count = 0;
+var dataset = null;]]></method>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <script-data-source name="ds_quizEncontroLideres" id="1186"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="ds_quizEncontroLideres" id="1187">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">id</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">questao1</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">questao2</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">questao3</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">questao4</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">questao5</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">questao6</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">questao7</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">questao8</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">questao9</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">questao10</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">id</property>
+                    <property name="alias">ID</property>
+                </structure>
+                <structure>
+                    <property name="columnName">questao1</property>
+                    <property name="alias">Questao 1</property>
+                </structure>
+                <structure>
+                    <property name="columnName">questao2</property>
+                    <property name="alias">Questao 2</property>
+                </structure>
+                <structure>
+                    <property name="columnName">questao3</property>
+                    <property name="alias">Questao 3</property>
+                </structure>
+                <structure>
+                    <property name="columnName">questao4</property>
+                    <property name="alias">Questao 4</property>
+                </structure>
+                <structure>
+                    <property name="columnName">questao5</property>
+                    <property name="alias">Questao 5</property>
+                </structure>
+                <structure>
+                    <property name="columnName">questao6</property>
+                    <property name="alias">Questao 6</property>
+                </structure>
+                <structure>
+                    <property name="columnName">questao7</property>
+                    <property name="alias">Questao 7</property>
+                </structure>
+                <structure>
+                    <property name="columnName">questao8</property>
+                    <property name="alias">Questao 8</property>
+                </structure>
+                <structure>
+                    <property name="columnName">questao9</property>
+                    <property name="alias">Questao 9</property>
+                </structure>
+                <structure>
+                    <property name="columnName">questao10</property>
+                    <property name="alias">Questao 10</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Questao 1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Questao 2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Questao 3</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Questao 4</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Questao 5</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Questao 6</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Questao 7</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Questao 8</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">Questao 9</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">Questao 10</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[try{
+    var factory = DatasetFactory.getInstance(${WKCompany});
+    var constraints = new Array(); 
+  //Dataset
+    dataset = factory.getDataset("ds_quizEncontroLideres", null, constraints, null);
+    
+     
+}catch (e) {
+}finally {
+}]]></method>
+            <property name="dataSource">ds_quizEncontroLideres</property>
+            <method name="fetch"><![CDATA[if (dataset != null) {
+    if (count <  dataset.rowsCount){
+        //monta o objeto da linha
+        
+        row["id"] = dataset.getValue(count, "documentid");
+		row["questao1"] = dataset.getValue(count, "questao1");
+		row["questao2"] = dataset.getValue(count, "questao2");
+		row["questao3"] = dataset.getValue(count, "questao3");
+		row["questao4"] = dataset.getValue(count, "questao4");
+		row["questao5"] = dataset.getValue(count, "questao5");
+		row["questao6"] = dataset.getValue(count, "questao6");
+		row["questao7"] = dataset.getValue(count, "questao7");
+		row["questao8"] = dataset.getValue(count, "questao8");
+		row["questao9"] = dataset.getValue(count, "questao9");
+		row["questao10"] = dataset.getValue(count, "questao10");
+   	 
+       //Atualiza o contador 
+        count++;
+        return true;
+    }
+}
+return false;]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="orientation">landscape</property>
+            <property name="height">148mm</property>
+            <property name="width">210mm</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="1373">
+            <property name="height">2.0729166666666665in</property>
+            <column id="1374">
+                <property name="width">2.9270833333333335in</property>
+            </column>
+            <column id="1375">
+                <property name="width">8.208333333333334in</property>
+            </column>
+            <row id="1376">
+                <cell id="1377">
+                    <image id="442">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <property name="marginTop">10pt</property>
+                        <property name="marginLeft">8pt</property>
+                        <property name="marginRight">0pt</property>
+                        <property name="display">block</property>
+                        <property name="height">63px</property>
+                        <property name="width">250px</property>
+                        <property name="source">url</property>
+                        <expression name="uri" type="constant">http://www.grupoorguel.com.br/wp-content/uploads/2015/10/logo-go-2.png</expression>
+                    </image>
+                </cell>
+                <cell id="1378">
+                    <label id="1185">
+                        <property name="fontFamily">"Calibri"</property>
+                        <property name="fontSize">50pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="fontStyle">italic</property>
+                        <property name="color">#0070C0</property>
+                        <property name="marginTop">18pt</property>
+                        <property name="marginLeft">0pt</property>
+                        <property name="paddingLeft">0pt</property>
+                        <property name="paddingRight">0pt</property>
+                        <property name="display">block</property>
+                        <text-property name="text">Quiz - Encontro de Lideres</text-property>
+                    </label>
+                </cell>
+            </row>
+        </grid>
+        <label id="44">
+            <property name="backgroundColor">#B1B1B1</property>
+            <property name="fontFamily">"Calibri"</property>
+            <property name="fontSize">18pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="fontStyle">italic</property>
+            <property name="color">#FFFFFF</property>
+            <property name="borderBottomColor">#FFFFFF</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">medium</property>
+            <property name="borderLeftColor">#FFFFFF</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">medium</property>
+            <property name="borderRightColor">#FFFFFF</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">medium</property>
+            <property name="borderTopColor">#FFFFFF</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">medium</property>
+            <property name="paddingTop">3pt</property>
+            <property name="paddingLeft">5pt</property>
+            <property name="paddingBottom">3pt</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">Relatório Quiz - Encontro de Lideres</text-property>
+        </label>
+        <table id="1309">
+            <property name="dataSet">ds_quizEncontroLideres</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Questao 1</property>
+                    <text-property name="displayName">Questao 1</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Questao 1"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Questao 2</property>
+                    <text-property name="displayName">Questao 2</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Questao 2"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Questao 3</property>
+                    <text-property name="displayName">Questao 3</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Questao 3"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Questao 4</property>
+                    <text-property name="displayName">Questao 4</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Questao 4"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Questao 5</property>
+                    <text-property name="displayName">Questao 5</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Questao 5"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Questao 6</property>
+                    <text-property name="displayName">Questao 6</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Questao 6"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Questao 7</property>
+                    <text-property name="displayName">Questao 7</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Questao 7"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Questao 8</property>
+                    <text-property name="displayName">Questao 8</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Questao 8"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Questao 9</property>
+                    <text-property name="displayName">Questao 9</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Questao 9"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Questao 10</property>
+                    <text-property name="displayName">Questao 10</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Questao 10"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ID</property>
+                    <text-property name="displayName">ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="1382"/>
+            <column id="1343"/>
+            <column id="1344"/>
+            <column id="1345"/>
+            <column id="1346"/>
+            <column id="1347"/>
+            <column id="1348"/>
+            <column id="1349"/>
+            <column id="1350"/>
+            <column id="1351"/>
+            <column id="1352"/>
+            <header>
+                <row id="1310">
+                    <property name="fontWeight">bold</property>
+                    <property name="fontStyle">italic</property>
+                    <property name="color">#0080FF</property>
+                    <cell id="1379">
+                        <label id="1383">
+                            <text-property name="text">ID</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1311">
+                        <label id="1353">
+                            <text-property name="text">Questao 1</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1312">
+                        <label id="1355">
+                            <text-property name="text">Questao 2</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1313">
+                        <label id="1357">
+                            <text-property name="text">Questao 3</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1314">
+                        <label id="1359">
+                            <text-property name="text">Questao 4</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1315">
+                        <label id="1361">
+                            <text-property name="text">Questao 5</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1316">
+                        <label id="1363">
+                            <text-property name="text">Questao 6</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1317">
+                        <label id="1365">
+                            <text-property name="text">Questao 7</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1318">
+                        <label id="1367">
+                            <text-property name="text">Questao 8</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1319">
+                        <label id="1369">
+                            <text-property name="text">Questao 9</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1320">
+                        <label id="1371">
+                            <text-property name="text">Questao 10</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="1321">
+                    <property name="fontWeight">bold</property>
+                    <property name="fontStyle">italic</property>
+                    <property name="color">#808080</property>
+                    <property name="textAlign">center</property>
+                    <cell id="1380">
+                        <data id="1384">
+                            <property name="resultSetColumn">ID</property>
+                        </data>
+                    </cell>
+                    <cell id="1322">
+                        <data id="1354">
+                            <property name="resultSetColumn">Questao 1</property>
+                        </data>
+                    </cell>
+                    <cell id="1323">
+                        <data id="1356">
+                            <property name="resultSetColumn">Questao 2</property>
+                        </data>
+                    </cell>
+                    <cell id="1324">
+                        <data id="1358">
+                            <property name="resultSetColumn">Questao 3</property>
+                        </data>
+                    </cell>
+                    <cell id="1325">
+                        <data id="1360">
+                            <property name="resultSetColumn">Questao 4</property>
+                        </data>
+                    </cell>
+                    <cell id="1326">
+                        <data id="1362">
+                            <property name="resultSetColumn">Questao 5</property>
+                        </data>
+                    </cell>
+                    <cell id="1327">
+                        <data id="1364">
+                            <property name="resultSetColumn">Questao 6</property>
+                        </data>
+                    </cell>
+                    <cell id="1328">
+                        <data id="1366">
+                            <property name="resultSetColumn">Questao 7</property>
+                        </data>
+                    </cell>
+                    <cell id="1329">
+                        <data id="1368">
+                            <property name="resultSetColumn">Questao 8</property>
+                        </data>
+                    </cell>
+                    <cell id="1330">
+                        <data id="1370">
+                            <property name="resultSetColumn">Questao 9</property>
+                        </data>
+                    </cell>
+                    <cell id="1331">
+                        <data id="1372">
+                            <property name="resultSetColumn">Questao 10</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="1332">
+                    <cell id="1381"/>
+                    <cell id="1333"/>
+                    <cell id="1334"/>
+                    <cell id="1335"/>
+                    <cell id="1336"/>
+                    <cell id="1337"/>
+                    <cell id="1338"/>
+                    <cell id="1339"/>
+                    <cell id="1340"/>
+                    <cell id="1341"/>
+                    <cell id="1342"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

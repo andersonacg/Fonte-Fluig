@@ -1,0 +1,124 @@
+﻿<!DOCTYPE HTML>
+<head>
+  <link type="text/css" rel="stylesheet" href="http://style.fluig.com/css/fluig-style-guide.min.css">
+  <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="/portal/resources/js/mustache/mustache.min.js"></script>
+  <script type="text/javascript" src="http://style.fluig.com/js/fluig-style-guide.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="css/estilo.css">
+  <script language="JavaScript" src="js/script.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+  <meta charset="UTF-8">
+<script>
+    var doc=document.getElementById("geo");
+    function getLocationIN()
+    {
+        if (navigator.geolocation)
+        {
+        navigator.geolocation.getCurrentPosition(showPositionIN,showError);
+		
+        }
+    }
+	    function getLocationOUT()
+    {
+        if (navigator.geolocation)
+        {
+        navigator.geolocation.getCurrentPosition(showPositionOUT,showError);
+		
+        }
+    }
+
+    function showPositionIN(position)
+    {
+        var latlon=position.coords.latitude+","+position.coords.longitude;
+		
+	
+		var lat = position.coords.latitude;		
+		var longi = position.coords.longitude;
+		document.getElementById("latitudecIN").value = lat;
+		document.getElementById("longitudecIN").value = longi;
+		
+
+    }
+	 function showPositionOUT(position)
+    {
+        var latlon=position.coords.latitude+","+position.coords.longitude;
+	
+		
+		var lato = position.coords.latitude;		
+		var longio = position.coords.longitude;
+		document.getElementById("latitudecOUT").value = lato;
+		document.getElementById("longitudecOUT").value = longio;
+    }
+
+    function showError(error)
+    {
+        switch(error.code) 
+        {
+        case error.PERMISSION_DENIED:
+          doc.innerHTML="Pedido de Geolocalização negado pelo usuário."
+          break;
+        case error.POSITION_UNAVAILABLE:
+          doc.innerHTML="Informações de localização não está disponível."
+          break;
+        case error.TIMEOUT:
+          doc.innerHTML="Solicitação de locatização não retornou em tempo hábil (timeout)."
+          break;
+        case error.UNKNOWN_ERROR:
+          doc.innerHTML="Erro desconhecido."
+          break;
+        }
+    }
+</script>
+</head>
+<html>
+<body>
+<form  class="ui-content" name="createFormComponents" method="post" action="">
+			<div data-role="header" data-theme="c">
+			
+			<hr>
+
+			<table class="table">
+				<tr>
+					<th></th>
+					<th>LATITUDE</th>
+					<th>LONGITUDE</th>
+
+				</tr>
+				<tr>
+					<th>CHECK-IN</th>
+					<th><input id="latitudecIN" id="disabledInput"></th>
+					<th><input id="longitudecIN" id="disabledInput"></th>
+				</tr>
+
+				<tr>
+					<th>CHECK-OUT</th>
+					<td><input id="latitudecOUT" id="disabledInput"></td>
+					<td><input id="longitudecOUT" id="disabledInput"></td>
+				</tr>
+			</table>
+
+			<hr>
+			
+			
+			
+			
+			
+		<h3>Geolocalização</h3>
+		</div><br>
+	
+
+							<div id="checkin">
+
+							<button type="button" class="btn btn-default" onclick="getLocationIN();">CHECK-IN</button>
+						</div><br>
+						
+						<div id="checkout">
+
+							<button type="button" class="btn btn-default" onclick="getLocationOUT();">CHECK-OUT-IN</button>
+						</div><br>
+	</form>
+</body>
+</html>

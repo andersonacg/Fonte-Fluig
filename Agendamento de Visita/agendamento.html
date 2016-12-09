@@ -1,0 +1,213 @@
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="http://style.fluig.com/css/fluig-style-guide.min.css">
+  <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="/portal/resources/js/mustache/mustache.min.js"></script>
+  <script type="text/javascript" src="http://style.fluig.com/js/fluig-style-guide.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="css/estilo.css">
+  <script language="JavaScript" src="js/script.js"></script>
+  <meta charset="UTF-8">
+</head>
+<script>
+    var doc=document.getElementById("geo");
+    function getLocationIN()
+    {
+        if (navigator.geolocation)
+        {
+        navigator.geolocation.getCurrentPosition(showPositionIN,showError);
+		
+        }
+    }
+	    function getLocationOUT()
+    {
+        if (navigator.geolocation)
+        {
+        navigator.geolocation.getCurrentPosition(showPositionOUT,showError);
+		
+        }
+    }
+
+    function showPositionIN(position)
+    {
+        var latlon=position.coords.latitude+","+position.coords.longitude;
+		
+	
+		var lat = position.coords.latitude;		
+		var longi = position.coords.longitude;
+		document.getElementById("latitudecIN").value = lat;
+		document.getElementById("longitudecIN").value = longi;
+		
+
+    }
+	 function showPositionOUT(position)
+    {
+        var latlon=position.coords.latitude+","+position.coords.longitude;
+	
+		
+		var lato = position.coords.latitude;		
+		var longio = position.coords.longitude;
+		document.getElementById("latitudecOUT").value = lato;
+		document.getElementById("longitudecOUT").value = longio;
+    }
+
+    function showError(error)
+    {
+        switch(error.code) 
+        {
+        case error.PERMISSION_DENIED:
+          doc.innerHTML="Pedido de Geolocalização negado pelo usuário."
+          break;
+        case error.POSITION_UNAVAILABLE:
+          doc.innerHTML="Informações de localização não está disponível."
+          break;
+        case error.TIMEOUT:
+          doc.innerHTML="Solicitação de locatização não retornou em tempo hábil (timeout)."
+          break;
+        case error.UNKNOWN_ERROR:
+          doc.innerHTML="Erro desconhecido."
+          break;
+        }
+    }
+</script>
+  <body>
+    <div class="fluig-style-guide">
+      <form name="form" role="form">
+       <div class="form-group">
+		 <div class="panel panel-default">
+			<div class="panel-heading" id="titulo"><span class="fluigicon fluigicon-calendar-verified fluigicon-md"></span>&nbsp;&nbsp;Agendamento de Visita Orguel</div>
+			<div class="panel-body">	 
+
+				<div class="form-group">
+				  <label>Cliente</label>
+				  <input
+					class="form-control"
+					type="zoom"
+					id = "cClient"
+					name="mCliente"
+					data-zoom="{
+						'displayKey':'Cliente',
+						'datasetId':'WS_ConsultaCliente',
+						'fields':[
+							{
+							   'field':'colleagueId',
+							   'label':'ID'
+							},{
+							  'field':'colleagueName',
+							  'label':'Nome',
+							  'standard':'true'
+							},{
+							  'field':'login',
+							  'label':'Login'
+							}
+						]
+					 }" 
+				/>
+				
+				</div>
+				
+							<div>	
+								<label id="texto">Data Programada</label>
+									<div class="input-group">
+										<input class="form-control" type="date" name="dPrograma"   placeholder=" Informe a data...">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></span>
+									</div>
+							</div><br>
+							<div>	
+								<label id="texto">Telefone</label>
+									<div class="input-group">
+										<input type="text" name="telefone" mask="(00) 0000-0000" class="form-control" placeholder="Telefone para contato...">
+										<span class="input-group-addon"><span class="fluigicon fluigicon-phone fluigicon-sm"></span></span>
+									</div><br>
+							</div>
+							
+							
+							<div>	
+								<label>Comentários</label>
+									<textarea class="form-control" rows="3" name="solicoment"></textarea>
+							</div><hr>
+							
+						
+							<div id="agendamento">
+								<div class="col-md-6 col-xs-12">	
+									<label id="texto">Data Visita</label>
+										<div class="input-group">
+											<input type="date" name="dvisita"  class="form-control" placeholder="Data da Visita...">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-calendar fluigicon-sm"></span></span>
+										</div>
+								</div>
+								
+								<div class="col-md-6 col-xs-12" id="GProposta">
+									<label>Gerou Proposta?</label>
+										<select name="GProposta" class="form-control">
+											<option>SIM</option>
+											<option>NÃO</option>
+										</select><br>
+								</div>
+						
+								<div class="col-md-6 col-xs-12">
+									<label>Resultado da Proposta</label>
+										<select name="resultProp" class="form-control">
+											<option>FECHADA</option>
+											<option>ENVIADA</option>
+											<option>PERDIDA</option>
+											<option>EM ANDAMENTO</option>
+											<option>CONGELADA</option>
+										</select><br>
+								</div>
+								
+								<div class="col-md-6 col-xs-12">	
+									<label id="texto">Valor R$</label>
+										<div class="input-group">
+											<input type="text" name="valorProp" mask="#00.000.000.000.000,00" class="form-control" placeholder="Informe a referencia da Obra...">
+											<span class="input-group-addon"><span class="fluigicon fluigicon-money fluigicon-sm"></span></span>
+										</div><br>
+								</div>
+								
+								<div>	
+									<label>Comentários</label>
+										<textarea class="form-control" name="vendComent" rows="3"></textarea>
+								</div>
+						</div><br>
+						
+
+			<hr>		
+
+		</div><br>
+				<div id="location">	
+
+						<div id="checkin">
+
+							<button id="bckIN" name="bckIN" type="button" class="btn btn-lg btn-block" onclick="getLocationIN();"><span class="fluigicon fluigicon-map-marker fluigicon-md"></span>CHECK-IN</button>
+						</div><br>
+						
+						<div id="checkout">
+
+							<button id="bckOut" name="bckOut" type="button" class="btn btn-lg btn-block" onclick="getLocationOUT();"><span class="fluigicon fluigicon-map-marker fluigicon-md"></span>CHECK-OUT</button>
+						</div><br>
+						
+					
+					<table class="table">
+						<tr>
+							<th></th>
+							<th>LATITUDE</th>
+							<th>LONGITUDE</th>
+						</tr>
+						<tr>
+							<th>CHECK-IN</th>
+							<th><input class="form-control" id="latitudecIN" name="latCheIn" id="disabledInput"></th>
+							<th><input class="form-control" id="longitudecIN" name="longCheIn" id="disabledInput"></th>
+						</tr>
+						<tr>
+							<th>CHECK-OUT</th>
+							<td><input class="form-control" id="latitudecOUT" name="latCheOut" id="disabledInput"></td>
+							<td><input class="form-control" id="longitudecOUT" name="longCheOut" id="disabledInput"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+      </form>
+    </div>
+  </body>
+</html>
